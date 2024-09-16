@@ -1,0 +1,124 @@
+<mat-toolbar class="mat-elevation-z8 default__toolbar">
+
+    <img src="assets/img/logoai.png" width="135" class="user-log" alt="logo ASDM">
+    <button [matTooltip]="is_show?'Cliquez pour fermer le menu':'Cliquez pour ouvrir le menu'"
+    (click)="drawer.toggle(); is_show =! is_show" mat-mini-fab color="default" class="ms-lg-5 ms-3 border-2 border-danger">
+        @if(is_show){
+            <mat-icon color="warn" class="mat-icon-navbar text-yellow">close</mat-icon>
+        }@else{
+            <mat-icon color="warn" class="mat-icon-navbar text-yellow">menu</mat-icon>
+        }
+    </button>
+
+    <span class="default__spacer"></span>
+    <div class="d-flex">
+        <button [matMenuTriggerFor]="userDropright" mat-button class="text-uppercase default__btn__lg">
+            <mat-icon>arrow_drop_down</mat-icon>
+            <style>
+                @media screen and (max-width: 992px) {
+                    .user-log {
+                        width: 100px !important;
+                    }
+
+                    .user-name {
+                        font-size: 12px;
+                    }
+
+                    .online-user {
+                        width: 30px !important;
+                        height: 30px !important;
+                    }
+                }
+            </style>
+
+            <!-- <span class="user-name">{{ online_user_data.fname +' '+online_user_data.lname }}</span> -->
+        </button>
+        <!-- <img [src]="online_user_data.photo_url" width="45" height="45" class="rounded-circle mt-2 online-user" alt=""> -->
+    </div>
+
+    <mat-menu #userDropright="matMenu">
+        <mat-divider></mat-divider>
+        <button (click)="forgotPassword()" mat-menu-item>
+            <i class="fa fa-lock fa-1x me-2 text-danger"></i>
+            Modifier mot de passe
+        </button>
+        <!-- <button (click)="logOut(online_user_data.id)" mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            Déconnexion
+        </button> -->
+    </mat-menu>
+</mat-toolbar>
+
+
+<mat-drawer-container class="default__drawer__conrainer">
+    <mat-drawer class="default__drawer" style="width: 280px!important; background-color: #c5cdc94f;" #drawer [opened]="screenWidth > 840"
+        [mode]="(screenWidth > 840) ? 'side' : 'over'">
+        <mat-nav-list class="mt-4">
+            <mat-divider mat-inset></mat-divider>
+            @for(item of sidebar_menu_list; track item){
+                <div class="ps-0">
+                    @if(item.category){
+                        <li
+                            class="text-white d-flex text-uppercase py-2 mat-elevation-z8 bg-secondary ps-3 mx-0 fw-bolder">
+                            <mat-icon class="me-2">{{ item.icon_category }}</mat-icon>
+                            <span class="mt-1">
+                                {{ item.category }}
+                            </span>
+                        </li>
+                    }
+
+                    @if(item.title){
+                    <li class="text-warning ms-3 py-2 fw-bolder"> {{ item.title }}</li>
+                    }
+
+                    <mat-list-item class="fw-bolder ps-3">
+                        <button class="w-100 py-2 text-dark mat-elevation-z8" [routerLink]="item.router"
+                            routerLinkActive="active" [routerLinkActiveOptions]="item.id == 1?{exact: true}:{exact: false} "
+                            mat-button>
+
+                            <mat-icon>{{ item.item_icon }}</mat-icon>
+                            <span class="text-start">{{ item.item_name }}</span>
+                        </button>
+                    </mat-list-item>
+
+                </div>
+            }
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content class="default__content">
+        <!-- ===============================================-->
+        <!--    Main Content-->
+        <!-- ===============================================-->
+        <main style="padding-top: 40px !important" class="main" id="top">
+            <div class="container" data-layout="container">
+                <script>
+                    var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+                    if (isFluid) {
+                    var container = document.querySelector('[data-layout]');
+                    container.classList.remove('container');
+                    container.classList.add('container-fluid');
+                    }
+                </script>
+                <div class="content mt-5">
+
+                    <router-outlet />
+
+                    <footer class="footer">
+                        <div class="row g-0 justify-content-between fs--1 mt-4 mb-3">
+                        <div class="col-12 col-sm-auto text-center">
+                            <p class="mb-0 text-600">Tous droits réservés par <b class="text-primary">Alerte <span class="text-secondary">Info</span>
+                                <span class="d-none d-sm-inline-block mx-2"> | </span>
+                                <br class="d-sm-none"/> 2024 &copy;
+                                <a role="button"> Diffusion sms</a> </b>
+                            </p>
+                        </div>
+                        <div class="col-12 col-sm-auto text-center">
+                            <p class="mb-0 text-600">v1.0.0</p>
+                        </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </main>
+    </mat-drawer-content>
+</mat-drawer-container>

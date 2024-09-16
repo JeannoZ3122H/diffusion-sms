@@ -1,0 +1,16 @@
+<h4 mat-dialog-title>Contacts de <b class="text-warning">{{ data.group_name }}</b></h4>
+<div mat-dialog-content>
+    <div class="container">
+        <div class="d-flex justify-content-center flex-lg-nowrap flex-wrap">
+            @for (item of list_single_contactin_group; track $index) {
+                <button mat-stroked-button color="primary">{{ item.phone }}</button>
+            }
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>
+        <mat-icon color="secondary">close</mat-icon>
+        Fermer
+    </button>
+</div>

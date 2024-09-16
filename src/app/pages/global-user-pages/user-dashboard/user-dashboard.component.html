@@ -1,0 +1,221 @@
+<div class="row mb-3">
+    <div class="col">
+        <div class="card bg-100 shadow-none border">
+            <div class="row gx-0 flex-between-center">
+                <div class="col-sm-auto d-flex align-items-center"><img class="ms-n2"
+                        src="assets/img/illustrations/crm-bar-chart.png" alt width="90" />
+                    <div>
+                        <h6 class="text-primary fs--1 mb-0">Bienvenue </h6>
+                        <h4 class="text-primary fw-bold mb-0"> John Doe <span class="text-info fw-medium">Entreprise</span></h4>
+                    </div><img class="ms-n4 d-md-none d-lg-block" src="assets/img/illustrations/crm-line-chart.png" alt
+                        width="150" />
+                </div>
+                <div class="col-md-auto p-3">
+                    <form class="row align-items-center g-3">
+                        <div class="col-auto">
+                            <h6 class="text-700 mb-0">Aujourd'hui: </h6>
+                        </div>
+                        <div class="col-md-auto position-relative">
+                            <button mat-raised-button>
+                                <mat-icon aria-hidden="false" fontIcon="calendar_today"></mat-icon>
+                                {{ toDay  | date:'fullDate' }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mb-3 g-3">
+    <div class="col-lg-12 col-xxl-9">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4 border-lg-end border-bottom border-lg-0 pb-3 pb-lg-0">
+                        <div class="d-flex flex-between-center mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-primary">
+                                    <mat-icon aria-hidden="false" fontIcon="phone"></mat-icon>
+                                </div>
+                                <h6 class="mb-0">Mes contacts</h6>
+                            </div>
+                            <div class="dropdown font-sans-serif btn-reveal-trigger">
+                                <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal"
+                                    type="button" id="dropdown-new-contact">
+                                    <mat-icon aria-hidden="false" fontIcon="more_horiz"></mat-icon>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end border py-2"
+                                    aria-labelledby="dropdown-new-contact">
+                                    <a class="dropdown-item" href="crm.html#!">View</a>
+                                    <a class="dropdown-item" href="crm.html#!">Export</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="crm.html#!">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                <p class="font-sans-serif lh-1 mb-1 fs-4 pe-2">15%</p>
+                                <div class="d-flex flex-column">
+                                    <mat-icon aria-hidden="false" color="primary" fontIcon="arrow_drop_up"></mat-icon>
+                                    <p class="fs--2 mb-0 text-nowrap">2500 vs
+                                        2683 </p>
+                                </div>
+                            </div>
+                            <div class="echart-crm-statistics w-100 ms-2" data-echart-responsive="true"
+                                data-echarts='{"series":[{"type":"line","data":[220,230,150,175,200,170,70,160],"color":"#2c7be5","areaStyle":{"color":{"colorStops":[{"offset":0,"color":"#2c7be53A"},{"offset":1,"color":"#2c7be50A"}]}}}],"grid":{"bottom":"-10px"}}'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 border-lg-end border-bottom border-lg-0 py-3 py-lg-0">
+                        <div class="d-flex flex-between-center mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-info">
+                                    <mat-icon aria-hidden="false" fontIcon="sms"></mat-icon>
+                                </div>
+                                <h6 class="mb-0">Sms restant</h6>
+                            </div>
+                            <div class="dropdown font-sans-serif btn-reveal-trigger">
+                                <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal"
+                                    type="button" id="dropdown-new-contact">
+                                    <mat-icon aria-hidden="false" fontIcon="more_horiz"></mat-icon>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end border py-2"
+                                    aria-labelledby="dropdown-new-contact">
+                                    <a class="dropdown-item" href="crm.html#!">View</a>
+                                    <a class="dropdown-item" href="crm.html#!">Export</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="crm.html#!">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                <p class="font-sans-serif lh-1 mb-1 fs-4 pe-2">13%</p>
+                                <div class="d-flex flex-column">
+                                    <mat-icon aria-hidden="false" color="primary" fontIcon="arrow_drop_up"></mat-icon>
+                                    <p class="fs--2 mb-0 text-nowrap">1635 vs
+                                        863 </p>
+                                </div>
+                            </div>
+                            <div class="echart-crm-statistics w-100 ms-2" data-echart-responsive="true"
+                                data-echarts='{"series":[{"type":"line","data":[90,160,150,120,230,155,220,240],"color":"#27bcfd","areaStyle":{"color":{"colorStops":[{"offset":0,"color":"#27bcfd3A"},{"offset":1,"color":"#27bcfd0A"}]}}}],"grid":{"bottom":"-10px"}}'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 pt-3 pt-lg-0">
+                        <div class="d-flex flex-between-center mb-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-success">
+                                    <mat-icon aria-hidden="false" color="primary" fontIcon="sms_failed"></mat-icon>
+                                </div>
+                                <h6 class="mb-0">Sms envoyés</h6>
+                            </div>
+                            <div class="dropdown font-sans-serif btn-reveal-trigger">
+                                <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal"
+                                    type="button" id="dropdown-new-contact">
+                                    <mat-icon aria-hidden="false" fontIcon="more_horiz"></mat-icon>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end border py-2"
+                                    aria-labelledby="dropdown-new-contact">
+                                    <a class="dropdown-item" href="crm.html#!">View</a>
+                                    <a class="dropdown-item" href="crm.html#!">Export</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-danger" href="crm.html#!">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                <p class="font-sans-serif lh-1 mb-1 fs-4 pe-2">16%</p>
+                                <div class="d-flex flex-column">
+                                    <mat-icon aria-hidden="false" color="primary" fontIcon="arrow_drop_up"></mat-icon>
+                                    <p class="fs--2 mb-0 text-nowrap">1423 vs
+                                        256 </p>
+                                </div>
+                            </div>
+                            <div class="echart-crm-statistics w-100 ms-2" data-echart-responsive="true"
+                                data-echarts='{"series":[{"type":"line","data":[200,150,175,130,150,115,130,100],"color":"#00d27a","areaStyle":{"color":{"colorStops":[{"offset":0,"color":"#00d27a3A"},{"offset":1,"color":"#00d27a0A"}]}}}],"grid":{"bottom":"-10px"}}'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3">
+        <div class="card">
+            <div class="card-header d-flex flex-between-center py-2 border-bottom">
+                <h6 class="mb-0">Most Leads</h6>
+                <div class="dropdown font-sans-serif btn-reveal-trigger">
+                    <button class="btn btn-link text-600 btn-sm dropdown-toggle dropdown-caret-none btn-reveal"
+                        type="button" id="dropdown-new-contact">
+                        <mat-icon aria-hidden="false" fontIcon="more_horiz"></mat-icon>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end border py-2"
+                        aria-labelledby="dropdown-new-contact">
+                        <a class="dropdown-item" href="crm.html#!">View</a>
+                        <a class="dropdown-item" href="crm.html#!">Export</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="crm.html#!">Remove</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div class="row align-items-center">
+                    <div class="col-md-5 col-xxl-12 mb-xxl-1">
+                        <div class="position-relative">
+                            <!-- Find the JS file for the following chart at: src/js/charts/echarts/most-leads.js-->
+                            <!-- If you are not using gulp based workflow, you can find the transpiled code at: public/assets/js/theme.js-->
+                            <div class="echart-most-leads my-2" data-echart-responsive="true"></div>
+                            <div class="position-absolute top-50 start-50 translate-middle text-center">
+                                <p class="fs--1 mb-0 text-400 font-sans-serif fw-medium">Total</p>
+                                <p class="fs-3 mb-0 font-sans-serif fw-medium mt-n2">15.6k</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-12 col-md-7">
+                        <hr class="mx-ncard mb-0 d-md-none d-xxl-block" />
+                        <div class="d-flex flex-between-center border-bottom py-3 pt-md-0 pt-xxl-3">
+                            <div class="d-flex"><img class="me-2" src="assets/img/crm/email.svg" width="16"
+                                    height="16" alt="..." />
+                                <h6 class="text-700 mb-0">Email </h6>
+                            </div>
+                            <p class="fs--1 text-500 mb-0 fw-semi-bold">5200 vs
+                                1052</p>
+                            <h6 class="text-700 mb-0">54%</h6>
+                        </div>
+                        <div class="d-flex flex-between-center border-bottom py-3">
+                            <div class="d-flex"><img class="me-2" src="assets/img/crm/social.svg" width="16"
+                                    height="16" alt="..." />
+                                <h6 class="text-700 mb-0">Social </h6>
+                            </div>
+                            <p class="fs--1 text-500 mb-0 fw-semi-bold">5623 vs
+                                4929</p>
+                            <h6 class="text-700 mb-0">27%</h6>
+                        </div>
+                        <div class="d-flex flex-between-center border-bottom py-3">
+                            <div class="d-flex"><img class="me-2" src="assets/img/crm/call.svg" width="16"
+                                    height="16" alt="..." />
+                                <h6 class="text-700 mb-0">Call </h6>
+                            </div>
+                            <p class="fs--1 text-500 mb-0 fw-semi-bold">2535 vs
+                                1486</p>
+                            <h6 class="text-700 mb-0">4%</h6>
+                        </div>
+                        <div class="d-flex flex-between-center border-bottom py-3 border-bottom-0 pb-0">
+                            <div class="d-flex"><img class="me-2" src="assets/img/crm/other.svg" width="16"
+                                    height="16" alt="..." />
+                                <h6 class="text-700 mb-0">Other </h6>
+                            </div>
+                            <p class="fs--1 text-500 mb-0 fw-semi-bold">256 vs
+                                189</p>
+                            <h6 class="text-700 mb-0">13%</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

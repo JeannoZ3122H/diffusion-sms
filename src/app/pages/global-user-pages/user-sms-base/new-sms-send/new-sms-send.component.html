@@ -1,0 +1,174 @@
+<div class="row justify-content-center">
+    <div class="col-lg-10 col-12">
+        <div class="card mb-3">
+            <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url(assets/img/corner-4.png);">
+            </div>
+            <div class="card-body position-relative">
+                <h4 class="mb-0 text-uppercase fw-bolder" data-anchor="data-anchor" id="custom-styles">
+                    Envoi de nouveau message
+                </h4>
+            </div>
+            <div class="card-body bg-body-tertiary">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card overflow-hidden">
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <div class="col-12">
+                                        <mat-form-field appearance="outline" class="example-full-width">
+                                            <mat-label>Choisissez le pays</mat-label>
+                                            <input matInput aria-label="State" [matAutocomplete]="auto"
+                                                [formControl]="stateCtrl">
+                                            <mat-autocomplete (optionSelected)='getState($event.option.value)'
+                                                #auto="matAutocomplete">
+                                                @for (state of filteredStates | async; track $index) {
+                                                <mat-option [value]="state.name">
+                                                    <img alt="" class="example-option-img" [src]="state.flag"
+                                                        height="20">
+                                                    <span class="ms-3">{{state.name}}</span>
+                                                </mat-option>
+                                                }
+                                            </mat-autocomplete>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-12">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Choisissez le réseau</mat-label>
+                                            <mat-select>
+                                                <mat-option>ORANGE</mat-option>
+                                                <mat-option>MOOV</mat-option>
+                                                <mat-option>MTN</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-12">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Contenu du message</mat-label>
+                                            <textarea matInput maxlength="160" style="height: 100px;"
+                                                [(ngModel)]="message_content"></textarea>
+                                            <mat-hint class="ms-auto mt-2">
+                                                <button mat-raised-button>
+                                                    <small class="fw-bolder">Restant</small>:
+                                                    <b class="text-danger">{{ rest_caracters - message_content.length
+                                                        }}</b>
+                                                </button>
+                                            </mat-hint>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-12 mt-5">
+                                        <div class="row">
+                                            <div class="col-12 text-center">
+                                                <div class="text-center">
+                                                    <p class="">
+                                                        Choisissez le mode de destinataire ?
+                                                    </p>
+                                                </div>
+                                                <mat-radio-group (change)="radioChangeModeRecipeint($event)">
+                                                    <button mat-raised-button class="mx-2" color="default">
+                                                        <mat-radio-button value="input_recipient">Saisir les
+                                                            destinataires</mat-radio-button>
+                                                    </button>
+                                                    <button mat-raised-button class="mx-2" color="default">
+                                                        <mat-radio-button value="upload_recipient">Charger les
+                                                            destinataires</mat-radio-button>
+                                                    </button>
+                                                </mat-radio-group>
+                                            </div>
+                                            @if (is_mode_recipient == 'input_recipient') {
+                                            <div class="col-12 mt-4">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Destinataires</mat-label>
+                                                    <input matInput [(ngModel)]="recipient" placeholder="+225 ">
+                                                    <mat-icon matSuffix>phone</mat-icon>
+                                                    <mat-hint class="ms-auto mt-2">
+                                                        <small class="fw-bolder">Liste des destinataires(10 maximum)
+                                                            séparés par
+                                                            , ou ; .</small>
+                                                        <b class="text-danger">Ex: +22666082222;+233...</b>
+                                                    </mat-hint>
+                                                </mat-form-field>
+                                            </div>
+                                            }
+                                            @if (is_mode_recipient == 'upload_recipient') {
+                                            <div class="col-12 mt-4">
+                                                <div class="col-lg-12">
+                                                    <div class="" [formGroup]="demoForm">
+                                                        <file-upload (ngModelChange)="uploadFile($event)"
+                                                            formControlName="files" [multiple]="multiple"
+                                                            [animation]="animation"></file-upload>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mt-5">
+                                        <div class="card">
+                                            <div class="card-body position-relative">
+                                                <div class="row">
+                                                    <div class="col-12 text-center">
+                                                        <div class="text-center">
+                                                            <p class="">
+                                                                Choisissez le type d'envoi ?
+                                                            </p>
+                                                        </div>
+                                                        <mat-radio-group (change)="radioChange($event)">
+                                                            <button mat-raised-button class="mx-2" color="default">
+                                                                <mat-radio-button value="instance_send">Envoi
+                                                                    immédiat</mat-radio-button>
+                                                            </button>
+                                                            <button mat-raised-button class="mx-2" color="default">
+                                                                <mat-radio-button value="later_send">Envoi
+                                                                    programmé</mat-radio-button>
+                                                            </button>
+                                                        </mat-radio-group>
+                                                    </div>
+                                                    @if (is_type_send_sms == 'later_send') {
+                                                    <div class="col-lg-6 col-12 mt-4">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Choisissez la date</mat-label>
+                                                            <input matInput [matDatepicker]="picker">
+                                                            <mat-datepicker-toggle (click)="removeBtnClosed()"
+                                                                matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                                            <mat-datepicker #picker></mat-datepicker>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-lg-6 col-12 mt-4">
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput name="selected_time_A"
+                                                                [(ngModel)]="selectedTimes" [ngxMatTimepicker]="pickerA"
+                                                                placeholder="4:00 PM" readonly />
+                                                            <mat-icon matSuffix (click)="pickerA.open()">
+                                                                watch_later
+                                                            </mat-icon>
+                                                        </mat-form-field>
+                                                        <ngx-mat-timepicker #pickerA dottedMinutesInGap
+                                                            enableKeyboardInput (timeSet)="onTimeSet($event)">
+                                                        </ngx-mat-timepicker>
+                                                    </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button mat-fab extended color="primary">
+                        <mat-icon>send</mat-icon>
+                        Envoyer
+                    </button>
+                </div>
+                <div class="text-start mt-2">
+                    <button mat-fab extended (click)="back()" color="warn">
+                        <mat-icon>reply</mat-icon>
+                        Retour
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

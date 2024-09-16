@@ -1,0 +1,44 @@
+<div mat-dialog-content>
+    <div class="container my-3">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="fs-10" style="max-width: 25rem;">
+                    <a class="notification" href="#!">
+                        <div class="notification-avatar">
+                            <div class="avatar avatar-2xl me-3">
+                                <mat-icon style=" width: 52px; height: 56px; font-size: 55px;"
+                                 aria-hidden="false" fontIcon="account_circle"></mat-icon>
+                            </div>
+                        </div>
+                        <div class="notification-body">
+                            <p class="mb-1 ms-1">
+                                <strong>M. / Mdme</strong>
+                            </p>
+                            <p class="mb-1 ms-2">
+                                Vous êtes sur le point de faire une suppression de
+                                <b class="fs-1 ms-2">
+                                    <span class="">*</span>
+                                    role
+                                    <span class="">*</span>
+                                </b>.
+                            </p>
+                            <span class="notification-time mt-3 d-flex justify-content-end">
+                                <button (click)="close('confirm')" class="btn btn-falcon-default bg-danger text-white rounded-pill me-1 mb-1" type="button">
+                                    <span class="fas fa-check-double me-1" data-fa-transform="shrink-3"></span>Je confirme
+                                </button>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <div class="d-flex justify-content-end">
+        <button mat-button mat-dialog-close>
+            <mat-icon color="secondary">close</mat-icon>
+            Annuler
+        </button>
+    </div>
+</div>

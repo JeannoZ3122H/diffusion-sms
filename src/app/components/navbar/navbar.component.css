@@ -1,0 +1,32 @@
+
+mat-list-item button.active{
+    transition: .4s all;
+    background: #f39302 !important;
+    color: white !important;
+}
+
+mat-list-item {
+    padding-left: 5px;
+}
+
+mat-list-item button:hover{
+    background: #f39302 !important;
+    color: white !important;
+}
+
+mat-list-item:has(button.active),
+mat-list-item:hover{
+    transition: .4s all;
+    padding-left: 25px !important;
+    background-color: #f393024f;
+}
+
+mat-list-item button.active span,
+mat-list-item button.active mat-icon,
+mat-list-item button:hover mat-icon,
+mat-list-item button:hover span
+{
+    transition: .4s all;
+    font-weight: bolder;
+    color: white !important;
+}
